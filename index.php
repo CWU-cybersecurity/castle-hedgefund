@@ -47,6 +47,9 @@ if ($action == null) {
     } else if ($action == 'support') {
         $categories = get_categories();
         include 'support.php';
+    } else if ($action == 'customer_register') {
+        $categories = get_categories();
+        include 'customer/customer_register.php';
     } else if ($action == 'customer_login') {
         $categories = get_categories();
         include 'customer/customer_login.php';

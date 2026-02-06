@@ -4,7 +4,7 @@
 <head>
     <title>The Guitar Store</title> 
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/customer_login.css">
+    <link rel="stylesheet" href="styles/customer_register.css">
 </head>
 
 <body>
@@ -13,8 +13,14 @@
     <main>
         <?php include 'view/aside.php'; ?>
         <section>
-            <form action="?action=customer_page" method="POST">
-                <h2>Customer Login</h2>
+            <form action="?action=customer_login" method="POST">
+                <h2>Customer Register</h2>
+                
+                <label for="fname">First Name:</label>
+                <input type="text" id="fname" name="fname">
+                
+                <label for="lname">Last Name:</label>
+                <input type="text" id="lname" name="lname">
                 
                 <label for="email">Email Address:</label>
                 <input type="text" id="email" name="email">
@@ -22,12 +28,16 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password">
                 
+                <label for="ssn">SSN:</label>
+                <input type="text" id="ssn" name="ssn">
+                
                 <div class="button-row">
-                    <input type="submit" id="login" value="Login">
+                    <input type="submit" id="register" value="Register">
                     <input type="button" id="cancel" value="Cancel">
-                    <input type="button" id="register" value="Don't have an account? Register here!">
+                    <input type="button" id="login" value="Already have an account? Login here!">
                 </div>
             </form>
+
             <!-- embedded script for invalid email address -->
             <script>
                 "use strict";
@@ -46,19 +56,22 @@
                 };
                 
                 document.addEventListener("DOMContentLoaded", () => {
-                    $("#login").addEventListener("click", () => {
+                    $("#register").addEventListener("click", () => {
                         const email = $("#email").value;
                         checkEmailAddress(email);
                     });
                     // clear all input fields
                     $("#cancel").addEventListener("click", () => {
+                        $("#fname").value = "";
+                        $("#lname").value = "";
                         $("#email").value = "";
                         $("#password").value = "";
-                        $("#email").focus();
+                        $("#ssn").value = "";
+                        $("#fname").focus();
                     });
-                    // redirect to register page
-                    $("#register").addEventListener("click", () => {
-                        window.location.href = "?action=customer_register";
+                    // redirect to login page
+                    $("#login").addEventListener("click", () => {
+                        window.location.href = "?action=customer_login";
                     });
                 });
             </script>
