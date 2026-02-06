@@ -13,7 +13,7 @@
     <main>
         <?php include 'view/aside.php'; ?>
         <section>
-            <form action="?action=customer_login" method="POST">
+            <form action="?action=customer_register_submit" method="POST">
                 <h2>Customer Register</h2>
                 
                 <label for="fname">First Name:</label>
@@ -54,11 +54,24 @@
                         event.preventDefault();
                     }
                 };
+
+                const checkSSN = (ssn) => {
+                    // check if not in valid ssn format
+                    const regex = /^\d{9}$/;
+                    if (!regex.test(ssn)) {
+                        alert("Invalid SSN");
+                        $("#ssn").value = ssn;
+                        $("#ssn").focus();
+                        event.preventDefault();
+                    }
+                };
                 
                 document.addEventListener("DOMContentLoaded", () => {
                     $("#register").addEventListener("click", () => {
                         const email = $("#email").value;
                         checkEmailAddress(email);
+                        const ssn = $("#ssn").value;
+                        checkSSN(ssn);
                     });
                     // clear all input fields
                     $("#cancel").addEventListener("click", () => {

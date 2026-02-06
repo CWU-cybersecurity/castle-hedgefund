@@ -12,7 +12,6 @@ if ($action == null) {
 }
 
 if ($action == null) {
-    $categories = get_categories();
     include 'home.php';
 } else {
     if ($action == 'category_name') {
@@ -48,18 +47,37 @@ if ($action == null) {
         $categories = get_categories();
         include 'support.php';
     } else if ($action == 'customer_register') {
-        $categories = get_categories();
         include 'customer/customer_register.php';
+    } else if ($action == 'customer_register_submit') {
+        $email_address = filter_input(INPUT_POST, 'email');
+        $password = filter_input(INPUT_POST, 'password');
+        $first_name = filter_input(INPUT_POST, 'fname');
+        $last_name = filter_input(INPUT_POST, 'lname');
+        $ssn = filter_input(INPUT_POST, 'ssn');
+        
+        // check if the email address is already registered
+        $customer_info = get_customer_info_by_email_address($email_address);
+        if ($customer_info != null && $customer_info != false) {
+            echo '<script>alert("Email address already exists, please use a different email address");</script>';
+            include 'customer/customer_register.php';
+        } else {
+            // register the new customer to the database
+            register_customer($email_address, md5($password), $first_name, $last_name, $ssn);
+            echo '<script>alert("Registration successful! Please login with your credentials");</script>';
+            include 'customer/customer_login.php';
+        }
     } else if ($action == 'customer_login') {
-        $categories = get_categories();
         include 'customer/customer_login.php';
     } else if ($action == 'customer_page') {
-        $categories = get_categories();
         $email_address = filter_input(INPUT_POST, 'email');
+        $password = filter_input(INPUT_POST, 'password');
         if ($email_address == null || $email_address == false) {
             $email_address = filter_input(INPUT_GET, 'email');
         }
-        $customer_info = get_customer_info_by_email_address($email_address);
+        if ($password == null || $password == false) {
+            $password = filter_input(INPUT_GET, 'password');
+        }
+        $customer_info = login_customer($email_address, $password);
         
         if ($customer_info == null || $customer_info == false) {
             $customer_id = filter_input(INPUT_POST, 'customer_id', FILTER_VALIDATE_INT);
