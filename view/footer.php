@@ -1,4 +1,4 @@
 <footer>
-    &copy; 2023 The Guitar Store
+    &copy; 2026 Castle Hedgefund, All rights reserved.
     <span id="date"></span>
 </footer>

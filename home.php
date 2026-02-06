@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>The Guitar Store</title> 
+    <title>Castle Hedgefund</title> 
     <link rel="stylesheet" href="styles/main.css">
 </head>
 
@@ -12,7 +12,7 @@
     <main>
         <?php include 'view/aside.php'; ?>
         <section>
-            <h1>Welcome to the Guitar Store!</h1>
+            <h1>Welcome to Castle Hedgefund!</h1>
             <p>Why buy from the Guitar Store? We have the world's largest selection
                 of guitars, plus lots of other musical instruments. We let you try
                 before you buy, so you can ensure the instrument is right for you.
