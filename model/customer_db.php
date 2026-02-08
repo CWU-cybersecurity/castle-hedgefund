@@ -108,4 +108,17 @@ function update_password($customer_id, $password) {
     $statement->execute();
     $statement->closeCursor();
 }
+
+// update the ssn
+function update_ssn($customer_id, $ssn) {
+    global $db;
+    $query = 'UPDATE customers
+              SET ssn = :ssn
+              WHERE customer_id = :customer_id';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':ssn', $ssn);
+    $statement->bindValue(':customer_id', $customer_id);
+    $statement->execute();
+    $statement->closeCursor();
+}
 ?>

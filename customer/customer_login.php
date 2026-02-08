@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>The Guitar Store</title> 
+    <title>Castle Hedgefund</title> 
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/customer_login.css">
 </head>
