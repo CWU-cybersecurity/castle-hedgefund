@@ -14,6 +14,7 @@ CREATE TABLE customers (
     first_name            VARCHAR(60)    NOT NULL,
     last_name             VARCHAR(60)    NOT NULL,
     ssn                   CHAR(9)        NOT NULL,
+    isAdmin               BOOLEAN        NOT NULL,
     CONSTRAINT customers_pk
         PRIMARY KEY (customer_id)
 ) ENGINE INNODB
@@ -21,14 +22,5 @@ CREATE TABLE customers (
 
 SET FOREIGN_KEY_CHECKS=1;
 
-DROP USER IF EXISTS 'CS351user'@'localhost';
-
-CREATE USER 'CS351user'@'localhost'
-IDENTIFIED BY ''
-;
-
-GRANT ALL 
-ON my_guitar_shop.* 
-TO 'CS351user'@'localhost'
-;
-
+INSERT INTO customers (email_address, password, first_name, last_name, ssn, isAdmin) VALUES
+('admin@castlehedgefund.com', 'admin123', 'Admin', 'User', '123456789', TRUE);

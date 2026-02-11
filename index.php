@@ -70,15 +70,15 @@ if ($action == null) {
         include 'customer/customer_login.php';
     } else if ($action == 'customer_page') {
         $email_address = filter_input(INPUT_POST, 'email');
-        $password = filter_input(INPUT_POST, 'password');
         if ($email_address == null || $email_address == false) {
             $email_address = filter_input(INPUT_GET, 'email');
         }
+        $password = filter_input(INPUT_POST, 'password');
         if ($password == null || $password == false) {
             $password = filter_input(INPUT_GET, 'password');
         }
+        
         $customer_info = login_customer($email_address, $password);
-        echo "<script>console.log('Customer Info:', " . json_encode($customer_info) . ");</script>";
         
         if ($customer_info == null || $customer_info == false) {
             $customer_id = filter_input(INPUT_POST, 'customer_id', FILTER_VALIDATE_INT);

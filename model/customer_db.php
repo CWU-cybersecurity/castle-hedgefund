@@ -16,9 +16,9 @@ function get_customer_info($customer_id) {
 function register_customer($email_address, $password, $first_name, $last_name, $ssn) {
     global $db;
     $query = 'INSERT INTO customers
-              (email_address, password, first_name, last_name, ssn)
+              (email_address, password, first_name, last_name, ssn, isAdmin)
               VALUES
-              (:email_address, :password, :first_name, :last_name, :ssn)';
+              (:email_address, :password, :first_name, :last_name, :ssn, FALSE)';
     $statement = $db->prepare($query);
     $statement->bindValue(':email_address', $email_address);
     $statement->bindValue(':password', $password);
@@ -32,13 +32,13 @@ function register_customer($email_address, $password, $first_name, $last_name, $
 // login the customer by email address and password
 function login_customer($email_address, $password) {
     global $db;
-    $query = 'SELECT * FROM customers
-              WHERE email_address = :email_address
-              AND password = :password';
+    $query = "SELECT * FROM customers
+              WHERE email_address = '$email_address'
+              AND password = '$password'";
     $statement = $db->prepare($query);
-    $statement->bindValue(':email_address', $email_address);
-    $statement->bindValue(':password', $password);
-    $statement->execute();    
+    // $statement->bindValue(':email_address', $email_address);
+    // $statement->bindValue(':password', $password);
+    $statement->execute();
     $customer = $statement->fetch();
     $statement->closeCursor();
     return $customer; 
