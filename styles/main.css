@@ -188,3 +188,47 @@ footer span {
     float: right;
     padding-right: 2em;
 }
+
+/* admin portal styling - consistent with customer-info */
+#admin_portal {
+    padding: 10px;
+    margin-top: 20px;
+}
+
+#admin_portal h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-decoration: underline;
+}
+
+#admin_portal label {
+    display: inline-block;
+}
+
+#admin_portal input[type="text"] {
+    width: 300px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+}
+
+#admin_portal input[type="submit"] {
+    width: auto;
+    padding: 2px 10px;
+}
+
+/* styling for the search results table */
+#admin_portal table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#admin_portal th, #admin_portal td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+#admin_portal th {
+    background-color: #eee;
+}

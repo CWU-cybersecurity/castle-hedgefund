@@ -120,4 +120,18 @@ function update_ssn($customer_id, $ssn) {
     $statement->execute();
     $statement->closeCursor();
 }
+
+// search for customers by last name
+function search_customers_by_last_name($last_name) {
+    global $db;
+    // intentionally vulnerable concatenation - direct concatenation allows UNION injection
+    $query = "SELECT first_name, last_name, email_address 
+              FROM customers 
+              WHERE last_name = '$last_name'";
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $results = $statement->fetchAll();
+    $statement->closeCursor();
+    return $results;
+}
 ?>

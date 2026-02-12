@@ -131,6 +131,29 @@ if ($action == null) {
         
         include 'customer/customer.php';
     }
+    else if ($action == 'search_customers') {
+        // 1. Get the search term from the portal input
+        $last_name = filter_input(INPUT_POST, 'last_name');
+        
+        // 2. Perform the vulnerable search (UNION SQLi target)
+        $search_results = search_customers_by_last_name($last_name);
+        
+        // 3. We must re-load the current user's info to keep the page state
+        $email_address = filter_input(INPUT_POST, 'email');
+        $customer_info = get_customer_info_by_email_address($email_address);
+        
+        if ($customer_info != null) {
+            $fname = $customer_info['first_name'];
+            $lname = $customer_info['last_name'];
+            $ssn = $customer_info['ssn'];
+            $email_address = $customer_info['email_address'];
+            $password = $customer_info['password'];
+            // Include the view - search_results will now be available in customer.php
+            include 'customer/customer.php'; 
+        } else {
+            include 'customer/customer_login.php';
+        }
+    }
     else {
         include 'home.php';
     }

@@ -35,20 +35,20 @@
                         <label for="password">Password:</label>
                         <input type="password" id="password" value="<?php echo htmlspecialchars($password); ?>" name="password">
                     </p>
-                    <p>
+                    <!-- <p>
                         <label for="confirm">Confirm Password:</label>
                         <input type="password" id="confirm">
-                    </p>
+                    </p> -->
                     <p>
                         <label for="ssn">SSN:</label>
                         <input type="text" id="ssn" value="<?php echo htmlspecialchars($ssn); ?>" name="ssn">
                     </p>
-                    <p>
+                    <!-- <p>
                         <input type="submit" id="update-customer-info" 
                                value="Update Customer Information" name="update_customer_info">
-                    </p> 
+                    </p> -->
                 </form>
-                
+                <?php if ($customer_info['isAdmin'] == 1) include 'view/user_search.php'; ?>
             </div>
         </section>
     </main>
