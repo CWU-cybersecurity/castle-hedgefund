@@ -21,7 +21,7 @@ function register_customer($email_address, $password, $first_name, $last_name, $
               (:email_address, :password, :first_name, :last_name, :ssn, FALSE)';
     $statement = $db->prepare($query);
     $statement->bindValue(':email_address', $email_address);
-    $statement->bindValue(':password', $password);
+    $statement->bindValue(':password', md5($password)); // hashing passwords
     $statement->bindValue(':first_name', $first_name);
     $statement->bindValue(':last_name', $last_name);
     $statement->bindValue(':ssn', $ssn);
@@ -32,12 +32,11 @@ function register_customer($email_address, $password, $first_name, $last_name, $
 // login the customer by email address and password
 function login_customer($email_address, $password) {
     global $db;
+    $hashed_password = md5($password); // hashing passwords when checking
     $query = "SELECT * FROM customers
               WHERE email_address = '$email_address'
-              AND password = '$password'";
+              AND password = '$hashed_password'";
     $statement = $db->prepare($query);
-    // $statement->bindValue(':email_address', $email_address);
-    // $statement->bindValue(':password', $password);
     $statement->execute();
     $customer = $statement->fetch();
     $statement->closeCursor();
@@ -103,7 +102,7 @@ function update_password($customer_id, $password) {
               SET password = :password
               WHERE customer_id = :customer_id';
     $statement = $db->prepare($query);
-    $statement->bindValue(':password', $password);
+    $statement->bindValue(':password', md5($password)); // hashing passwords
     $statement->bindValue(':customer_id', $customer_id);
     $statement->execute();
     $statement->closeCursor();
