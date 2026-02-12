@@ -114,3 +114,31 @@ document.addEventListener("DOMContentLoaded", () => {
        document.getElementById("#update_success").textContent = "Billing Address Updated";
    }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.querySelector("#support-modal");
+    const supportLink = document.querySelector("#support-link");
+    const closeBtn = document.querySelector(".close-btn");
+
+    // Open Modal
+    if (supportLink) {
+        supportLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            modal.style.display = "block";
+        });
+    }
+
+    // Close Modal via X button
+    if (closeBtn) {
+        closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+    }
+
+    // Close Modal if clicking outside of the white box
+    window.addEventListener("click", (e) => {
+        if (e.target == modal) {
+            modal.style.display = "none";
+        }
+    });
+});

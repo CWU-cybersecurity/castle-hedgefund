@@ -14,7 +14,7 @@
         <?php include 'view/aside.php'; ?>
         <section>
             <form action="?action=customer_register_submit" method="POST">
-                <h2>Customer Register</h2>
+                <h2>Employee Register</h2>
                 
                 <label for="fname">First Name:</label>
                 <input type="text" id="fname" name="fname">

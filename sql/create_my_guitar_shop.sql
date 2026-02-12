@@ -25,10 +25,10 @@ SET FOREIGN_KEY_CHECKS=1;
 -- Seed the database with users
 INSERT INTO customers (email_address, password, first_name, last_name, ssn, isAdmin) VALUES
 -- Admin User: password is 'admin123'
-('admin@castlehedgefund.com', MD5('admin123'), 'Admin', 'User', '123456789', TRUE),
+('carter@castlehedgefund.com', MD5('admin123'), 'Carter', 'Briggs', '123456789', TRUE),
 
 -- Lower Employee: password is 'password123'
-('slave@castlehedgefund.com', MD5('password123'), 'Jimmy', 'B', '987654321', FALSE);
+('jimmy@castlehedgefund.com', MD5('password123'), 'Jimmy', 'Bee', '987654321', FALSE);
 
 -- A sensitive table for the UNION SELECT SQL injection attack
 CREATE TABLE secret_assets (

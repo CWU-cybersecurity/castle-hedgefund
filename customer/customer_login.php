@@ -14,7 +14,7 @@
         <?php include 'view/aside.php'; ?>
         <section>
             <form action="?action=customer_page" method="POST">
-                <h2>Customer Login</h2>
+                <h2>Employee Login</h2>
                 
                 <label for="email">Email Address:</label>
                 <input type="text" id="email" name="email">
