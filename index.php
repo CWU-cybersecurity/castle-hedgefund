@@ -93,6 +93,8 @@ if ($action == null) {
             // customer information here
             $fname = $customer_info['first_name'];
             $lname = $customer_info['last_name'];
+            $email_address = $customer_info['email_address'];
+            $password = $customer_info['password'];
             $ssn = $customer_info['ssn'];
             include 'customer/customer.php'; 
         }

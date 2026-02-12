@@ -48,7 +48,7 @@
                 document.addEventListener("DOMContentLoaded", () => {
                     $("#login").addEventListener("click", () => {
                         const email = $("#email").value;
-                        checkEmailAddress(email);
+                        // checkEmailAddress(email);
                     });
                     // clear all input fields
                     $("#cancel").addEventListener("click", () => {
