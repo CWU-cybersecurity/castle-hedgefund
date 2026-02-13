@@ -22,13 +22,21 @@ CREATE TABLE customers (
 
 SET FOREIGN_KEY_CHECKS=1;
 
--- Seed the database with users
+-- Seed the database with a full roster
 INSERT INTO customers (email_address, password, first_name, last_name, ssn, isAdmin) VALUES
--- Admin User: password is 'admin123'
+-- Administrative / IT (High Value Targets)
 ('carter@castlehedgefund.com', MD5('admin123'), 'Carter', 'Briggs', '123456789', TRUE),
+('sarah@castlehedgefund.com', MD5('supersecure1'), 'Sarah', 'Chen', '111223333', TRUE),
 
--- Lower Employee: password is 'password123'
-('jimmy@castlehedgefund.com', MD5('password123'), 'Jimmy', 'Bee', '987654321', FALSE);
+-- General Employees (Lower Privilege Targets for Sniffing)
+('jimmy@castlehedgefund.com', MD5('password123'), 'Jimmy', 'Bee', '987654321', FALSE),
+('marcus@castlehedgefund.com', MD5('castle2024'), 'Marcus', 'Vance', '555001234', FALSE),
+('jenny@castlehedgefund.com', MD5('cupcake'), 'Jenny', 'Miller', '444119999', FALSE),
+('travis@castlehedgefund.com', MD5('football'), 'Travis', 'Scott', '222884444', FALSE),
+('elena@castlehedgefund.com', MD5('gooner'), 'Elena', 'Rodriguez', '333775555', FALSE),
+('david@castlehedgefund.com', MD5('ilovecats'), 'David', 'Whitman', '666228888', FALSE),
+('linda@castlehedgefund.com', MD5('monkey'), 'Linda', 'Park', '777331111', FALSE),
+('brad@castlehedgefund.com', MD5('welcome'), 'Brad', 'Wilson', '888442222', FALSE);
 
 -- A sensitive table for the UNION SELECT SQL injection attack
 CREATE TABLE secret_assets (
