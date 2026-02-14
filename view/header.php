@@ -1,5 +1,5 @@
 <header>
-    <img src="images/misc/castle-logo.png" alt="Guitar Store Logo" class="guitar-logo">
+    <img src="images/misc/castle-logo.png" alt="Castle Logo" class="guitar-logo">
     <a href="?action=customer_register">
         <img src="images/misc/customers-1.ico" alt="customer icon">
     </a>

@@ -26,7 +26,7 @@
                 Investment Associate.</p>
             
             <h2>Portfolio Highlight: Emerging Markets</h2>
-            <p>Enter a portfolio code (e.g. <strong>agressive_growth</strong> to view portfolio detail:</p>
+            <p>Enter a portfolio code (e.g. <strong>agressive_growth</strong> to view portfolio detail)</p>
             <form action='index.php' method='get'>
                 <input type='hidden' name='action' value='products'>
                 <input type='text' name='portfolio' placeholder=''>
