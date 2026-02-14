@@ -16,7 +16,7 @@ if ($action == null) {
 } else {
     if ($action == 'products') {
         
-        $product_name = $_GET['portfolio'];
+        $product_name = $_GET['portfolio'] ?? null;
         include 'products/product_list.php';
         
         
