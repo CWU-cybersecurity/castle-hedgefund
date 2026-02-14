@@ -11,7 +11,6 @@
     <?php include 'view/header.php'; ?>
     <?php include 'view/horizontal_nav_bar.php'; ?>
     <main>
-        <?php include 'view/aside.php'; ?>
         <section>
             <form action="?action=customer_page" method="POST">
                 <h2>Employee Login</h2>

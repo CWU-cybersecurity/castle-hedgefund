@@ -11,7 +11,6 @@
     <?php include 'view/header.php'; ?>
     <?php include 'view/horizontal_nav_bar.php'; ?>
     <main>
-        <?php include 'view/aside.php'; ?>
         <section>
             <div class="customer-info">
                 <div class="profile-layout">
