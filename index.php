@@ -14,39 +14,14 @@ if ($action == null) {
 if ($action == null) {
     include 'home.php';
 } else {
-    if ($action == 'category_name') {
-        $categories = get_categories();
-        $category_id = filter_input(INPUT_GET, 'category_id',
-        FILTER_VALIDATE_INT);
-        if ($category_id == null || $category_id == false) {
-            $category_id = 1;
-        }
-        if ($category_id == 1) {
-            include 'products/guitars.php';
-        } else {
-            include 'home.php';
-        }
-    } else if ($action == 'products') {
-        $categories = get_categories();
-        $category_id = filter_input(INPUT_POST, 'category',
-            FILTER_VALIDATE_INT);
-        if ($category_id == null || $category_id == false) {
-            $category_id = 1; // default category
-            $category_name = get_category_name($category_id);
-            $products = get_product($category_id);
-        } else {
-            // get category name and products
-            $category_name = get_category_name($category_id);
-            $products = get_product($category_id);
-        }
+    if ($action == 'products') {
+        
+        $product_name = $_GET['portfolio'];
         include 'products/product_list.php';
-    } else if ($action == 'shipping') {
-        $categories = get_categories();
-        include 'shipping.php';
-    } else if ($action == 'support') {
-        $categories = get_categories();
-        include 'support.php';
-    } else if ($action == 'customer_register') {
+        
+        
+    } 
+    else if ($action == 'customer_register') {
         include 'customer/customer_register.php';
     } else if ($action == 'customer_register_submit') {
         $email_address = filter_input(INPUT_POST, 'email');
