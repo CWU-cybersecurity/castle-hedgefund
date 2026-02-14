@@ -1,0 +1,14 @@
+{
+  "system_status": "active",
+  "environment": "production",
+  "api_endpoints": {
+    "wire_transfers": "/api/v1/private/execute-transfer",
+    "client_lookup": "/api/v1/private/client-pii"
+  },
+  "debug_mode": true,
+  "service_account": {
+    "id": "castle_admin",
+    "secret_token": "SUPER_SECRET_TOKEN_88219",
+    "flag": "FLAG{JSON_DATA_LEAK_2026}"
+  }
+}
